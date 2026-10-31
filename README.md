@@ -189,6 +189,11 @@ Made sure it looks appropriate and looks professional.
 * Added descriptive `alt` text to images.
 * Created `robots.txt` and `sitemap.xml` files.
 
+  ### 3.2 Off-Page SEO Implemented
+*   **Social Media:** Promoted the live Netlify website link on my personal [Insert Social Media Name, e.g., LinkedIn] account to drive traffic.
+*   **Backlinks:** Added the live website URL to my GitHub profile repository description to serve as a backlink.
+*   **Local SEO:** Ensured local Johannesburg NAP (Name, Address, Phone Number) details are clearly structured on the `contacts.html` page to help with local search visibility.
+
 ---
 
 ## Changelog
