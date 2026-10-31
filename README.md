@@ -170,6 +170,25 @@ I gathered images for the website
 Added images to my website to enhance how it looks.
 Made sure it looks appropriate and looks professional.
 
+
+
+## Part 3 
+
+**Feedback from Part 2 Addressed:**
+* Cleaned up duplicate HTML tags (like extra `<script>` and `</section>` tags) to ensure valid code.
+
+**Functionality Added:**
+* **Interactive Elements:** Added a JavaScript Accordion to the `about_us.html` page.
+* **Dynamic Content:** Added a JavaScript Search/Filter feature to the Products page.
+* **Forms:** 
+  * Added an Enquiry form with JavaScript validation and dynamic cost/availability responses.
+  * Added a Contact form with custom JavaScript error handling (Regex for email and phone) that compiles user input into an email format.
+
+**SEO Added:**
+* Added Meta Descriptions and descriptive Titles to all pages.
+* Added descriptive `alt` text to images.
+* Created `robots.txt` and `sitemap.xml` files.
+
 ---
 
 ## Changelog
@@ -178,6 +197,7 @@ Made sure it looks appropriate and looks professional.
 |---|---|---|
 |18/08/2026| v1.0| Created intial GitHub project repo|
 |01/09/2026| v2.0| Added changes to my files in my Github|
+|25/10/2026| v3.0| Added security changes to my website
 
  
 
