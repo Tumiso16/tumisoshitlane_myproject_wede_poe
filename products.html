@@ -2,155 +2,163 @@
 <html lang="en">
 
 <head>
+    
 
-    <!-- Sets the character encoding -->
-    <meta charset="UTF-8">
-
-    <!-- Makes the website responsive on different screen sizes -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Website title shown in the browser tab -->
+    <!-- Sets the title that appears on the browser tab -->
     <title>Products - My Coffee Shop</title>
+    
+    <!-- SEO: Meta Description and Keywords -->
+    <meta name="description" content="Explore our menu at My Coffee Shop. Freshly baked pastries, hot coffee, and cold drinks.">
+    <meta name="keywords" content="buy coffee, espresso, cappuccino, latte, coffee beans, coffee prices, fresh pastries">
 
-    <!-- Links this page to the external CSS stylesheet -->
+    <!-- Connects this HTML page to the external CSS stylesheet -->
     <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-    <!-- Navigation section -->
+    <!-- Header contains the top section of the webpage -->
     <header>
+
+        <!-- Nav contains the navigation links used to move between pages -->
         <nav>
 
-            <!-- Coffee shop logo -->
+            <!-- Displays the coffee shop logo -->
             <img src="images/logo.png" alt="Bean and Brew Coffee Shop Logo">
 
-            <!-- Navigation links -->
+            <!-- Unordered list containing the website navigation links -->
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about_us.html">About Us</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><a href="services.html">Services</a></li>
                 <li><a href="enquiry.html">Enquiry</a></li>
                 <li><a href="contacts.html">Contact</a></li>
             </ul>
 
         </nav>
+
     </header>
 
-    <!-- Main content of the Products page -->
+
+    <!-- Main contains the main content of the Products page -->
     <main>
 
-        <!-- Products introduction -->
         <section class="intro">
-
             <h1>Our Products</h1>
-
-            <p>
-                We offer a selection of freshly prepared coffee,
-                delicious cakes and pastries, and refreshing cold drinks.
-            </p>
-
+            <p>Browse our delicious selection of freshly baked goods and refreshing drinks.</p>
         </section>
 
-        <!-- Product section -->
-        <section class="featured">
+        <!-- ========================================== -->
+        <!-- Search Bar -->
+        <!-- ========================================== -->
+        <section style="text-align: center; margin: 20px 0 40px 0;">
+            
+            <div style="position: relative; display: inline-flex; align-items: center; width: 60%; max-width: 500px; gap: 10px;">
+                
+                <div style="position: relative; flex-grow: 1;">
+                    <!-- The Search Icon -->
+                    <button id="searchBtn" style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 18px; color: #888; cursor: pointer; padding: 5px;">🔍</button>
+                    
+                    <!-- The Input Box -->
+                    <input type="text" id="searchInput" placeholder="Search for a product and press Enter..." style="padding: 12px 12px 12px 45px; width: 100%; border: 2px solid #ccc; border-radius: 25px; font-size: 16px; outline: none; box-sizing: border-box;">
+                </div>
 
-            <h2>Coffee</h2>
-
-            <!-- Coffee products -->
-            <div class="products">
-
-                <article class="product-card">
-                    <h3>Espresso</h3>
-                    <p>Strong and rich freshly brewed coffee.</p>
-                    <p>R25</p>
-                </article>
-
-                <article class="product-card">
-                    <h3>Cappuccino</h3>
-                    <p>Espresso topped with steamed milk and foam.</p>
-                    <p>R35</p>
-                </article>
-
-                <article class="product-card">
-                    <h3>Café Latte</h3>
-                    <p>Smooth espresso with steamed milk.</p>
-                    <p>R35</p>
-                </article>
-
+                <!-- Clear Button -->
+                <button id="clearSearchBtn" style="padding: 12px 20px; background-color: #6F4E37; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px;">Clear</button>
+            
             </div>
+            
+        </section>
+
+        <!-- Pastries Section -->
+        <h2 style="text-align: center; margin-top: 30px;">Pastries</h2>
+        
+        <section class="products" id="productList">
+            
+            <article class="product-card">
+                <!-- Image styled to fill width, be tall, and rounded -->
+                <img src="images/cake.jpg" alt="Delicious slice of chocolate cake" style="width: 100%; height: 350px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                <h3>Chocolate Cake</h3>
+                <p>A delicious slice of chocolate cake.</p>
+                <p><strong>R30</strong></p>
+            </article>
+
+            <article class="product-card">
+                <img src="images/blueberry.jpg" alt="Freshly baked blueberry muffin" style="width: 100%; height: 350px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                <h3>Blueberry Muffin</h3>
+                <p>Freshly baked muffin with blueberries.</p>
+                <p><strong>R25</strong></p>
+            </article>
+
+            <article class="product-card">
+                <img src="images/croissant.jpg" alt="Fresh and buttery croissant" style="width: 100%; height: 350px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                <h3>Croissant</h3>
+                <p>Fresh and buttery baked croissant.</p>
+                <p><strong>R22</strong></p>
+            </article>
 
         </section>
 
-        <!-- Cakes and pastries section -->
-        <section class="featured">
+        <!-- Cold Drinks Section -->
+        <h2 style="text-align: center; margin-top: 40px;">Cold Drinks</h2>
+        <section class="products">
 
-            <h2>Cakes & Pastries</h2>
+            <article class="product-card">
+                <img src="images/icedcoffee.jpg" alt="Cold coffee served with ice" style="width: 100%; height: 350px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                <h3>Iced Coffee</h3>
+                <p>Cold coffee served with ice.</p>
+                <p><strong>R32</strong></p>
+            </article>
 
-            <div class="products">
+            <article class="product-card">
+                <img src="images/juice.2.jpg" alt="Refreshing fruit juice" style="width: 100%; height: 350px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                <h3>Fresh Juice</h3>
+                <p>Refreshing fruit juice.</p>
+                <p><strong>R28</strong></p>
+            </article>
 
-                <article class="product-card">
-                    <h3>Chocolate Cake</h3>
-                    <p>A delicious slice of chocolate cake.</p>
-                    <p>R30</p>
-                </article>
+            <article class="product-card">
+                <img src="images/icedtea.webp" alt="Refreshing chilled tea" style="width: 100%; height: 350px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                <h3>Iced Tea</h3>
+                <p>Refreshing chilled tea.</p>
+                <p><strong>R25</strong></p>
+            </article>
 
-                <article class="product-card">
-                    <h3>Blueberry Muffin</h3>
-                    <p>Freshly baked muffin with blueberries.</p>
-                    <p>R25</p>
-                </article>
+        </section>
 
-                <article class="product-card">
-                    <h3>Croissant</h3>
-                    <p>Fresh and buttery baked croissant.</p>
-                    <p>R22</p>
-                </article>
-
+        <!-- ========================================== -->
+        <!-- Interactive Gallery Lightbox -->
+        <!-- ========================================== -->
+        <section class="featured" style="margin-top: 50px;">
+            <h2 style="text-align: center;">Inside Bean & Brew</h2>
+            <p style="text-align: center;">Click an image to view our cozy atmosphere.</p>
+            
+            <div class="gallery" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-top: 20px;">
+                <!-- Using your interior image so it's not a repeat of the food -->
+                <img src="images/coffee_shop_1_4.png" alt="Coffee shop interior seating" class="gallery-img" style="width: 300px; height: 200px; object-fit: cover; border-radius: 5px;">
+                
+                <!-- Using your logo as a second gallery item -->
+                <img src="images/interior.webp" alt="Bean and Brew Logo" class="gallery-img" style="width: 300px; height: 200px; object-fit: contain; background-color: #f9f9f9; border-radius: 5px;">
             </div>
-
         </section>
 
-        <!-- Cold drinks section -->
-        <section class="featured">
-
-            <h2>Cold Drinks</h2>
-
-            <div class="products">
-
-                <article class="product-card">
-                    <h3>Iced Coffee</h3>
-                    <p>Cold coffee served with ice.</p>
-                    <p>R32</p>
-                </article>
-
-                <article class="product-card">
-                    <h3>Fresh Juice</h3>
-                    <p>Refreshing fruit juice.</p>
-                    <p>R28</p>
-                </article>
-
-                <article class="product-card">
-                    <h3>Iced Tea</h3>
-                    <p>Refreshing chilled tea.</p>
-                    <p>R25</p>
-                </article>
-
-            </div>
-
-        </section>
+        <!-- The Lightbox Overlay (Hidden by default) -->
+        <div id="lightbox" class="lightbox">
+            <span class="close">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
 
     </main>
 
-    <!-- Footer section -->
+
+    <!-- Footer contains information displayed at the bottom of the webpage -->
     <footer>
-
         <p>&copy; 2026 My Coffee Shop. All rights reserved.</p>
-
     </footer>
+    
+    <!-- Link to external JavaScript file -->
+    <script src="js/script.js"></script>
 
 </body>
-
 </html>
