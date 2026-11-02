@@ -2,149 +2,196 @@
 <html lang="en">
 
 <head>
-
-    <!-- Defines the document as an HTML5 webpage -->
-    <meta charset="UTF-8">
-
-    <!-- Makes the webpage responsive on different screen sizes -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Sets the title that appears on the browser tab -->
     <title>Enquiry - My Coffee Shop</title>
-
+<meta name="description" content="Make an enquiry at My Coffee Shop. Ask about our products, special orders, or general information.">
+<meta name="keywords" content="coffee enquiry, special coffee orders, coffee catering, coffee shop questions, bulk coffee order">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry - My Coffee Shop</title>
+    
+    
     <!-- Connects this HTML page to the external CSS stylesheet -->
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
 
-    <!-- Header contains the top section of the webpage -->
+    <!-- Header -->
     <header>
-
-        <!-- Nav contains the navigation links used to move between pages -->
         <nav>
-
-            <!-- Displays the coffee shop logo -->
             <img src="images/logo.png" alt="Bean and Brew Coffee Shop Logo">
-
-            <!-- Unordered list containing the website navigation links -->
             <ul>
-
-                <!-- Link to the Home page -->
                 <li><a href="index.html">Home</a></li>
-
-                <!-- Link to the About Us page -->
                 <li><a href="about_us.html">About Us</a></li>
-
-                <!-- Link to the Products page -->
                 <li><a href="products.html">Products</a></li>
-
-                <!-- Link to the Enquiry page -->
                 <li><a href="enquiry.html">Enquiry</a></li>
-
-                <!-- Link to the Contact page -->
                 <li><a href="contacts.html">Contact</a></li>
-
             </ul>
-
         </nav>
-
     </header>
 
-
-    <!-- Main contains the main content of the Enquiry page -->
+    <!-- Main content -->
     <main>
 
-        <!-- Introduction section for the enquiry page -->
         <section class="intro">
-
-            <!-- Main heading of the page -->
             <h1>Make an Enquiry</h1>
-
-            <!-- Short explanation for customers -->
-            <p>
-                Have a question or need more information?
-                Complete the form below and we will get back to you.
-            </p>
-
+            <p>Have a question or need more information? Complete the form below and we will get back to you.</p>
         </section>
-
 
         <!-- Enquiry form section -->
         <section class="featured">
-
-            <!-- Heading for the enquiry form -->
             <h2>Enquiry Form</h2>
 
-            <!-- Form allows customers to submit their information -->
-            <form>
-
-                <!-- Label and input for the customer's name -->
+            <!-- Form uses novalidate so our custom JS handles the errors instead of browser popups -->
+            <form id="enquiryForm" novalidate>
+                
                 <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" required>
-
+                <input type="text" id="name">
+                <span class="error-msg" id="nameError"></span>
                 <br><br>
 
-                <!-- Label and input for the customer's email address -->
                 <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required>
-
+                <input type="email" id="email">
+                <span class="error-msg" id="emailError"></span>
                 <br><br>
 
-                <!-- Label and input for the customer's phone number -->
                 <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone">
-
+                <input type="tel" id="phone">
+                <span class="error-msg" id="phoneError"></span>
                 <br><br>
 
-                <!-- Label and dropdown for selecting an enquiry type -->
                 <label for="enquiry">Enquiry Type:</label>
-
-                <select id="enquiry" name="enquiry">
-
-                    <!-- Option for general enquiries -->
+                <select id="enquiry">
+                    <option value="">-- Please select --</option>
                     <option value="general">General Enquiry</option>
-
-                    <!-- Option for product enquiries -->
                     <option value="products">Products</option>
-
-                    
-                    <!-- Option for special orders -->
                     <option value="orders">Special Orders</option>
-
                 </select>
-
+                <span class="error-msg" id="typeError"></span>
                 <br><br>
 
-                <!-- Label and text area for the customer's message -->
                 <label for="message">Message:</label>
                 <br>
-
-                <textarea id="message" name="message" rows="6" cols="40"
-                    placeholder="Enter your enquiry here..."></textarea>
-
+                <textarea id="message" rows="6" placeholder="Enter your enquiry here..."></textarea>
+                <span class="error-msg" id="msgError"></span>
                 <br><br>
 
-                <!-- Button used to submit the enquiry form -->
                 <button type="submit">Submit Enquiry</button>
 
-            </form>
+                <!-- This empty paragraph will display the success response -->
+                <p id="enquiryResponse" style="margin-top: 20px; font-weight: bold; color: #2e7d32;"></p>
 
+            </form>
         </section>
 
     </main>
 
-
-    <!-- Footer contains information displayed at the bottom of the webpage -->
+    <!-- Footer -->
     <footer>
-
-        <!-- Copyright information -->
         <p>&copy; 2026 My Coffee Shop. All rights reserved.</p>
-
     </footer>
+    
+    <!-- Link to external JavaScript file -->
+    <script src="js/script.js"></script>
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT FOR ENQUIRY FORM VALIDATION -->
+    <!-- ========================================== -->
+    <script>
+        document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop normal submission
+
+            // Get form values
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const phone = document.getElementById('phone');
+            const enquiryType = document.getElementById('enquiry');
+            const message = document.getElementById('message');
+
+            // Get error message elements
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const phoneError = document.getElementById('phoneError');
+            const typeError = document.getElementById('typeError');
+            const msgError = document.getElementById('msgError');
+            const responseElement = document.getElementById('enquiryResponse');
+
+            // Reset previous errors
+            let isValid = true;
+            const inputs = [name, email, phone, enquiryType, message];
+            const errorSpans = [nameError, emailError, phoneError, typeError, msgError];
+            
+            inputs.forEach(input => input.classList.remove('input-error'));
+            errorSpans.forEach(span => span.textContent = '');
+            responseElement.textContent = ''; // Clear old success message
+
+            // 1. Validate Name
+            if (name.value.trim() === "") {
+                nameError.textContent = "Please enter your full name.";
+                name.classList.add('input-error');
+                isValid = false;
+            }
+
+            // 2. Validate Email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email.value.trim() === "") {
+                emailError.textContent = "Please enter your email address.";
+                email.classList.add('input-error');
+                isValid = false;
+            } else if (!emailRegex.test(email.value)) {
+                emailError.textContent = "Please enter a valid email format.";
+                email.classList.add('input-error');
+                isValid = false;
+            }
+
+            // 3. Validate Phone (10 digits)
+            const phoneRegex = /^\d{10}$/;
+            if (phone.value.trim() === "") {
+                phoneError.textContent = "Please enter your phone number.";
+                phone.classList.add('input-error');
+                isValid = false;
+            } else if (!phoneRegex.test(phone.value)) {
+                phoneError.textContent = "Phone number must be exactly 10 digits.";
+                phone.classList.add('input-error');
+                isValid = false;
+            }
+
+            // 4. Validate Enquiry Type
+            if (enquiryType.value === "") {
+                typeError.textContent = "Please select an enquiry type.";
+                enquiryType.classList.add('input-error');
+                isValid = false;
+            }
+
+            // 5. Validate Message
+            if (message.value.trim() === "") {
+                msgError.textContent = "Please enter your message.";
+                message.classList.add('input-error');
+                isValid = false;
+            }
+
+            // If everything is valid, show the response!
+            if (isValid) {
+                let responseMessage = "";
+
+                if (enquiryType.value === 'products') {
+                    responseMessage = `Thank you, ${name.value}! Our product catalog and pricing will be emailed to you shortly.`;
+                } else if (enquiryType.value === 'orders') {
+                    responseMessage = `Thank you, ${name.value}! For special orders, our team will contact you within 24 hours to discuss availability and cost.`;
+                } else {
+                    responseMessage = `Thank you, ${name.value}! We have received your general enquiry and will get back to you soon.`;
+                }
+
+                // Display the message on the screen
+                responseElement.textContent = responseMessage;
+
+                // Clear the form fields after submission
+                this.reset();
+            }
+        });
+    </script>
 
 </body>
-
 </html>
-                    
+
+
