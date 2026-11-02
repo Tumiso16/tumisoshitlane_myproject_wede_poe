@@ -2,153 +2,229 @@
 <html lang="en">
 
 <head>
-
-    <!-- Defines the document as an HTML5 webpage -->
+    
     <meta charset="UTF-8">
-
-    <!-- Makes the webpage responsive on different screen sizes -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Sets the title that appears on the browser tab -->
     <title>Contact Us - My Coffee Shop</title>
+    
+    <!-- SEO: Meta Description and Keywords -->
+    <meta name="description" content="Contact My Coffee Shop. Find our location, phone number, email, business hours, or send us a message directly.">
+    <meta name="keywords" content="contact coffee shop, coffee shop location, coffee shop phone number, Johannesburg cafe address">
 
     <!-- Connects this HTML page to the external CSS stylesheet -->
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
 
-    <!-- Header contains the top section of the webpage -->
+    <!-- Header -->
     <header>
-
-        <!-- Nav contains the navigation links used to move between pages -->
         <nav>
-
-            <!-- Displays the coffee shop logo -->
             <img src="images/logo.png" alt="Bean and Brew Coffee Shop Logo">
-
-            <!-- Unordered list containing the website navigation links -->
             <ul>
-
-                <!-- Link to the Home page -->
                 <li><a href="index.html">Home</a></li>
-
-                <!-- Link to the About Us page -->
                 <li><a href="about_us.html">About Us</a></li>
-
-                <!-- Link to the Products page -->
                 <li><a href="products.html">Products</a></li>
-
-                <!-- Link to the Enquiry page -->
                 <li><a href="enquiry.html">Enquiry</a></li>
-
-                <!-- Link to the Contact page -->
                 <li><a href="contacts.html">Contact</a></li>
-
             </ul>
-
         </nav>
-
     </header>
 
-
-    <!-- Main contains the main content of the Contact page -->
+    <!-- Main content -->
     <main>
 
-        <!-- Introduction section -->
         <section class="intro">
-
-            <!-- Main heading of the page -->
             <h1>Contact Us</h1>
-
-            <!-- Short message inviting customers to contact us -->
-            <p>
-                We would love to hear from you.
-                You can contact My Coffee Shop using the details below.
-            </p>
-
+            <p>We would love to hear from you. You can contact My Coffee Shop using the details below.</p>
         </section>
-
 
         <!-- Contact information section -->
         <section class="featured">
-
-            <!-- Heading for the contact information -->
             <h2>Get In Touch</h2>
-
             <div class="products">
-
-                <!-- Address information -->
+                
                 <article class="product-card">
-
                     <h3>Our Location</h3>
-
-                    <p>
-                        123 Coffee Street<br>
-                        Johannesburg<br>
-                        Gauteng<br>
-                        South Africa
-                    </p>
-
+                    <p>123 Coffee Street<br>Johannesburg<br>Gauteng<br>South Africa</p>
+                    
+                    <!-- ========================================== -->
+                    <!-- PART 3 ADDITION: Interactive Google Map -->
+                    <!-- ========================================== -->
+                    <div style="margin-top: 15px;">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.485784464771!2d28.04730531503186!3d-26.20410298343039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c1d7a5c3fcd%3A0x6b8b5f5f5f5f5f5f!2sJohannesburg%20City%20Hall!5e0!3m2!1sen!2sza!4v1610000000000!5m2!1sen!2sza" 
+                            width="100%" 
+                            height="200" 
+                            style="border:0; border-radius: 8px;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
                 </article>
 
-
-                <!-- Telephone information -->
                 <article class="product-card">
-
                     <h3>Phone</h3>
-
-                    <p>
-                        011 123 4567
-                    </p>
-
+                    <p>011 123 4567</p>
                 </article>
 
-
-                <!-- Email information -->
                 <article class="product-card">
-
                     <h3>Email</h3>
-
-                    <p>
-                        info@mycoffeeshop.co.za
-                    </p>
-
+                    <p>info@mycoffeeshop.co.za</p>
                 </article>
 
             </div>
-
         </section>
-
 
         <!-- Business hours section -->
         <section class="intro">
-
-            <!-- Heading for business hours -->
             <h2>Business Hours</h2>
-
-            <!-- Displays the days and opening times -->
             <p>
                 Monday - Friday: 07:00 - 18:00<br>
                 Saturday: 08:00 - 17:00<br>
                 Sunday: 09:00 - 15:00
             </p>
+        </section>
 
+        <!-- ========================================== -->
+        <!-- Contact Form Section -->
+        <!-- ========================================== -->
+        <section class="featured">
+            <h2>Send Us a Message</h2>
+            
+            <form id="contactForm" novalidate>
+                
+                <label for="contactName">Full Name:</label>
+                <input type="text" id="contactName">
+                <span class="error-msg" id="nameError"></span>
+                <br><br>
+                
+                <label for="contactEmail">Email Address:</label>
+                <input type="email" id="contactEmail">
+                <span class="error-msg" id="emailError"></span>
+                <br><br>
+                
+                <label for="contactPhone">Phone Number:</label>
+                <input type="tel" id="contactPhone">
+                <span class="error-msg" id="phoneError"></span>
+                <br><br>
+                
+                <label for="messageType">Type of Message:</label>
+                <select id="messageType">
+                    <option value="">-- Please select --</option>
+                    <option value="General Question">General Question</option>
+                    <option value="Feedback">Feedback</option>
+                    <option value="Complaint">Complaint</option>
+                    <option value="Catering Request">Catering Request</option>
+                </select>
+                <span class="error-msg" id="typeError"></span>
+                <br><br>
+                
+                <label for="contactMessage">Your Message:</label>
+                <br>
+                <textarea id="contactMessage" rows="6" placeholder="Type your message here..."></textarea>
+                <span class="error-msg" id="msgError"></span>
+                <br><br>
+                
+                <button type="submit">Send Message</button>
+            </form>
         </section>
 
     </main>
 
-
-    <!-- Footer contains information displayed at the bottom of the webpage -->
+    <!-- Footer -->
     <footer>
-
-        <!-- Copyright information -->
         <p>&copy; 2026 My Coffee Shop. All rights reserved.</p>
-
     </footer>
+    
+    <!-- Link to external JavaScript file -->
+    <script src="js/script.js"></script>
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT FOR CONTACT FORM VALIDATION -->
+    <!-- ========================================== -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+
+            const name = document.getElementById('contactName');
+            const email = document.getElementById('contactEmail');
+            const phone = document.getElementById('contactPhone');
+            const msgType = document.getElementById('messageType');
+            const message = document.getElementById('contactMessage');
+
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const phoneError = document.getElementById('phoneError');
+            const typeError = document.getElementById('typeError');
+            const msgError = document.getElementById('msgError');
+
+            let isValid = true;
+            const inputs = [name, email, phone, msgType, message];
+            const errorSpans = [nameError, emailError, phoneError, typeError, msgError];
+            
+            inputs.forEach(input => input.classList.remove('input-error'));
+            errorSpans.forEach(span => span.textContent = '');
+
+            if (name.value.trim() === "") {
+                nameError.textContent = "Please enter your full name.";
+                name.classList.add('input-error');
+                isValid = false;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email.value.trim() === "") {
+                emailError.textContent = "Please enter your email address.";
+                email.classList.add('input-error');
+                isValid = false;
+            } else if (!emailRegex.test(email.value)) {
+                emailError.textContent = "Please enter a valid email format.";
+                email.classList.add('input-error');
+                isValid = false;
+            }
+
+            const phoneRegex = /^\d{10}$/;
+            if (phone.value.trim() === "") {
+                phoneError.textContent = "Please enter your phone number.";
+                phone.classList.add('input-error');
+                isValid = false;
+            } else if (!phoneRegex.test(phone.value)) {
+                phoneError.textContent = "Phone number must be exactly 10 digits.";
+                phone.classList.add('input-error');
+                isValid = false;
+            }
+
+            if (msgType.value === "") {
+                typeError.textContent = "Please select a message type.";
+                msgType.classList.add('input-error');
+                isValid = false;
+            }
+
+            if (message.value.trim() === "") {
+                msgError.textContent = "Please enter your message.";
+                message.classList.add('input-error');
+                isValid = false;
+            }
+
+            if (isValid) {
+                const recipientEmail = "info@mycoffeeshop.co.za";
+                const subject = encodeURIComponent(`Contact Form: ${msgType.value} from ${name.value}`);
+                
+                const body = encodeURIComponent(
+                    `Name: ${name.value}\n` +
+                    `Email: ${email.value}\n` +
+                    `Phone: ${phone.value}\n` +
+                    `Message Type: ${msgType.value}\n\n` +
+                    `Message:\n${message.value}`
+                );
+
+                window.location.href = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
+                
+                this.reset();
+                alert("Message compiled successfully! Your email app should open now.");
+            }
+        });
+    </script>
 
 </body>
-
 </html>
-                   
