@@ -208,10 +208,11 @@ Made sure it looks appropriate and looks professional.
 |18/08/2026| v1.0| Created intial GitHub project repo|
 |01/09/2026| v2.0| Added changes to my files in my Github|
 |25/10/2026| v3.0| Added security changes to my website| 
-                   Interactive Elements:** Added a JavaScript Accordion to the `about_us.html` page.
-                   Dynamic Content: Added a JavaScript Search/Filter feature to the Products page foerms
-                   Added an Enquiry form with JavaScript validation and dynamic cost/availability responses.
-                   Added a Contact form with custom JavaScript error handling (Regex for email and phone) that compiles user input into                      an email format.
+                  | Interactive Elements:** Added a JavaScript Accordion to the `about_us.html` page.|
+                   
+                   |Dynamic Content: Added a JavaScript Search/Filter feature to the Products page foerms|
+                   |Added an Enquiry form with JavaScript validation and dynamic cost/availability responses.|
+                   |Added a Contact form with custom JavaScript error handling (Regex for email and phone) that compiles user input into                      an email format.|
 
 
 ## References
