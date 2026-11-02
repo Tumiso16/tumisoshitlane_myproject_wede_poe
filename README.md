@@ -194,6 +194,11 @@ Made sure it looks appropriate and looks professional.
 *   **Backlinks:** Added the live website URL to my GitHub profile repository description to serve as a backlink.
 *   **Local SEO:** Ensured local Johannesburg NAP (Name, Address, Phone Number) details are clearly structured on the `contacts.html` page to help with local search visibility.
 
+  ### Netlify Link
+  https://beanandbrew2004.netlify.app/
+  
+  
+
 ---
 
 ## Changelog
@@ -202,7 +207,7 @@ Made sure it looks appropriate and looks professional.
 |---|---|---|
 |18/08/2026| v1.0| Created intial GitHub project repo|
 |01/09/2026| v2.0| Added changes to my files in my Github|
-|25/10/2026| v3.0| Added security changes to my website
+|25/10/2026| v3.0| Added security changes to my website| Interactive Elements:** Added a JavaScript Accordion to the `about_us.html` page.
 
  
 
